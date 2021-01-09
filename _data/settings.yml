@@ -1,0 +1,30 @@
+# Change 'comments' to true for Disqus comments
+disqus:
+  comments: false
+  disqus_shortname: 'millennial-3'
+
+# If you are not using Google Analytics, please change 'google-ID' to an empty string
+google-ID: ''
+
+menu:
+- {name: 'Contact', folder: 'pages', file: 'contact.html'}
+
+# Available social icons are powered by Font Awesome, so you can use any icon that they offer
+social:
+- {icon: 'twitter', link: 'https://twitter.com/tomusdrw'}
+- {icon: 'facebook', link: 'https://www.facebook.com/tomasz.drwiega'}
+- {icon: 'github', link: 'https://github.com/tomusdrw'}
+- {icon: 'linkedin', link: 'https://linkedin.com/in/tomasz.drwiega'}
+#- {icon: 'rss-square', link: 'feed.xml'}
+# - {icon: 'rss-square', link: 'rss-feed.xml'}
+
+# Customize site text
+pagination:
+  next_page: '➡'
+  previous_page: '⬅'
+
+sharing_button_prompt: 'Social bs'
+
+related_posts: '...'
+
+post_date_prefix: ''
