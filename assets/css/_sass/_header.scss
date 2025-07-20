@@ -74,10 +74,10 @@
 
 @keyframes logoGlow {
   from { 
-    text-shadow: 0 0 10px $terminal-green-glow, 0 0 20px $terminal-green-glow;
+    text-shadow: 0 0 5px $terminal-green-glow, 0 0 10px $terminal-green-glow;
   }
   to { 
-    text-shadow: 0 0 15px $terminal-green-glow, 0 0 30px $terminal-green-glow, 0 0 40px $terminal-green-glow;
+    text-shadow: 0 0 8px $terminal-green-glow, 0 0 15px $terminal-green-glow;
   }
 }
 
