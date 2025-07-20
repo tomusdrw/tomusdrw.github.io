@@ -66,7 +66,7 @@ body::after {
   100% { opacity: 0.98; }
 }
 
-/* Headings with subtle cyberpunk glow */
+/* Headings with cyberpunk glow */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
@@ -74,7 +74,16 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   font-family: $heading-font-family;
   color: $terminal-green-bright;
-  text-shadow: 0 0 2px $terminal-green-glow;
+  text-shadow: 
+    0 0 5px $terminal-green-glow,
+    0 0 10px $terminal-green-glow,
+    0 0 15px $terminal-green-glow;
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from { text-shadow: 0 0 5px $terminal-green-glow, 0 0 10px $terminal-green-glow, 0 0 15px $terminal-green-glow; }
+  to { text-shadow: 0 0 10px $terminal-green-glow, 0 0 20px $terminal-green-glow, 0 0 30px $terminal-green-glow; }
 }
 
 h1 {
@@ -119,6 +128,7 @@ p {
   line-height: 1.65;
   font-family: $body-font-family;
   color: $terminal-green;
+  text-shadow: 0 0 2px $terminal-shadow;
 }
 
 /* Lists */
@@ -153,13 +163,17 @@ dd {
 a {
   color: $terminal-green-bright;
   text-decoration: none;
+  text-shadow: 0 0 3px $terminal-green-glow;
   transition: all 0.3s ease;
   position: relative;
 }
 
 a:hover {
   color: $terminal-green-bright;
-  text-shadow: 0 0 3px $terminal-green-glow;
+  text-shadow: 
+    0 0 5px $terminal-green-glow,
+    0 0 10px $terminal-green-glow,
+    0 0 15px $terminal-green-glow;
   animation: linkPulse 0.5s ease-in-out;
 }
 
@@ -207,6 +221,7 @@ blockquote::before {
   top: 15px;
   color: $terminal-green-bright;
   font-weight: bold;
+  text-shadow: 0 0 5px $terminal-green-glow;
 }
 
 /**
@@ -229,6 +244,7 @@ blockquote::before {
      text-align: left;
      background: rgba(0, 255, 65, 0.1);
      color: $terminal-green-bright;
+     text-shadow: 0 0 3px $terminal-green-glow;
      font-weight: bold;
  }
  
@@ -242,3 +258,30 @@ blockquote::before {
  tr:hover td {
      background: rgba(0, 255, 65, 0.05);
  }
+
+ .highlight {
+   background: rgba(0, 255, 65, 0.05);
+   border: 1px solid rgba(0, 255, 65, 0.2);
+   border-radius: 3px;
+   padding: 1rem;
+   margin: 1rem 0;
+   overflow-x: auto;
+ }
+
+/* Front page only - reduced glow effects for better legibility */
+.layout-home h1, .layout-home h2, .layout-home h3, .layout-home h4, .layout-home h5, .layout-home h6 {
+  text-shadow: 0 0 2px $terminal-green-glow;
+  animation: none;
+}
+
+.layout-home a {
+  text-shadow: none;
+}
+
+.layout-home a:hover {
+  text-shadow: 0 0 3px $terminal-green-glow;
+}
+
+.layout-home p {
+  text-shadow: none;
+}

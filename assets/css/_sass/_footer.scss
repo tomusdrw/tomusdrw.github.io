@@ -38,11 +38,15 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
+  text-shadow: 0 0 3px $terminal-green-glow;
 }
 
 .footer a:hover {
   color: $terminal-green-bright;
-  text-shadow: 0 0 2px $terminal-green-glow;
+  text-shadow: 
+    0 0 5px $terminal-green-glow,
+    0 0 10px $terminal-green-glow,
+    0 0 15px $terminal-green-glow;
   animation: footerLinkPulse 0.5s ease-in-out;
 }
 
