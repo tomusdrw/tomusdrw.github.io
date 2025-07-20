@@ -1,0 +1,115 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#001122;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#003344;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#001122;stop-opacity:1" />
+    </linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Desk surface -->
+  <rect x="0" y="450" width="1200" height="150" fill="#1a1a1a" opacity="0.8"/>
+  
+  <!-- Monitor stand -->
+  <rect x="580" y="380" width="40" height="70" fill="#333" rx="5"/>
+  <rect x="560" y="440" width="80" height="15" fill="#333" rx="7"/>
+  
+  <!-- Monitor frame -->
+  <rect x="350" y="180" width="500" height="320" fill="#222" rx="10"/>
+  <rect x="365" y="195" width="470" height="290" fill="url(#screenGlow)" rx="5"/>
+  
+  <!-- Blurred code on screen -->
+  <g filter="url(#blur)" opacity="0.7">
+    <text x="380" y="220" fill="#00ff41" font-family="monospace" font-size="12">
+      function buildJAMImplementation() {
+    </text>
+    <text x="380" y="240" fill="#00ff41" font-family="monospace" font-size="12">
+        const typeberry = new JAMProtocol();
+    </text>
+    <text x="380" y="260" fill="#00ff41" font-family="monospace" font-size="12">
+        return typeberry.compile();
+    </text>
+    <text x="380" y="280" fill="#00ff41" font-family="monospace" font-size="12">
+      }
+    </text>
+    <text x="380" y="310" fill="#00aa33" font-family="monospace" font-size="12">
+      // TypeScript JAM implementation
+    </text>
+    <text x="380" y="330" fill="#00ff41" font-family="monospace" font-size="12">
+      class PVMDebugger extends Tool {
+    </text>
+    <text x="380" y="350" fill="#00ff41" font-family="monospace" font-size="12">
+        debug(context: JAMContext) {
+    </text>
+    <text x="380" y="370" fill="#00ff41" font-family="monospace" font-size="12">
+          this.analyze(context.state);
+    </text>
+    <text x="380" y="390" fill="#00ff41" font-family="monospace" font-size="12">
+        }
+    </text>
+    <text x="380" y="410" fill="#00ff41" font-family="monospace" font-size="12">
+      }
+    </text>
+    <text x="380" y="440" fill="#00aa33" font-family="monospace" font-size="12">
+      > npm run build:typeberry
+    </text>
+    <text x="380" y="460" fill="#00ff41" font-family="monospace" font-size="12">
+      ✓ Build successful
+    </text>
+  </g>
+  
+  <!-- Screen glow effect -->
+  <rect x="350" y="180" width="500" height="320" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.3" rx="10" filter="url(#glow)"/>
+  
+  <!-- Keyboard -->
+  <rect x="450" y="520" width="300" height="60" fill="#1a1a1a" rx="8"/>
+  <g opacity="0.6">
+    <!-- Key rows -->
+    <rect x="460" y="530" width="280" height="8" fill="#333" rx="2"/>
+    <rect x="460" y="545" width="280" height="8" fill="#333" rx="2"/>
+    <rect x="460" y="560" width="280" height="8" fill="#333" rx="2"/>
+  </g>
+  
+  <!-- Mouse -->
+  <ellipse cx="780" cy="540" rx="25" ry="35" fill="#1a1a1a"/>
+  <ellipse cx="780" cy="540" rx="20" ry="30" fill="#333"/>
+  
+  <!-- Hooded figure silhouette -->
+  <g opacity="0.8">
+    <!-- Hood -->
+    <path d="M 500 350 Q 520 320 550 330 Q 580 320 600 350 Q 600 380 580 400 Q 550 410 520 400 Q 500 380 500 350 Z" fill="#000"/>
+    <!-- Face area (dark) -->
+    <ellipse cx="550" cy="370" rx="25" ry="30" fill="#111"/>
+    <!-- Shoulders -->
+    <rect x="480" y="400" width="140" height="80" fill="#000" rx="20"/>
+    <!-- Arms -->
+    <ellipse cx="460" cy="450" rx="30" ry="50" fill="#000"/>
+    <ellipse cx="640" cy="450" rx="30" ry="50" fill="#000"/>
+  </g>
+  
+  <!-- Ambient lighting effects -->
+  <circle cx="600" cy="300" r="200" fill="#00ff41" opacity="0.05"/>
+  <circle cx="600" cy="300" r="300" fill="#003322" opacity="0.03"/>
+  
+  <!-- Subtle reflections on desk -->
+  <rect x="0" y="450" width="1200" height="5" fill="#00ff41" opacity="0.1"/>
+</svg>
