@@ -4,7 +4,7 @@
   text-align: center;
   min-height: 56px;
   line-height: 45px;
-  width: $container-width;
+  width: 100%;
   border-top: 2px solid $terminal-green-dim;
   box-shadow: 
     0 -5px 20px rgba(0, 255, 65, 0.3),
@@ -63,7 +63,7 @@
     text-align: center;
     min-height: 56px;
     line-height: 45px;
-    width: 95vw;
+    width: 100%;
     border-top: 2px solid $terminal-green-dim;
     box-shadow: 
       0 -5px 20px rgba(0, 255, 65, 0.3),
