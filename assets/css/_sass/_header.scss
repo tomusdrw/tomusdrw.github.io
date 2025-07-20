@@ -2,38 +2,108 @@
   min-height: 56px;
   width: $container-width;
   position: fixed;
-  background-color: white;
-  box-shadow: 0 5px 6px -6px #bbb;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0.95) 100%);
+  border-bottom: 2px solid $terminal-green-dim;
+  box-shadow: 
+    0 5px 20px rgba(0, 255, 65, 0.3),
+    inset 0 1px 0 rgba(0, 255, 65, 0.2);
   z-index: 100;
+  backdrop-filter: blur(10px);
 }
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.05) 2px,
+    rgba(0, 255, 65, 0.05) 4px
+  );
+  pointer-events: none;
+}
+
 @media (max-width: $container-width) {
   .site-header {
       min-height: 56px;
       width: 95vw;
       position: fixed;
-      background-color: white;
-      box-shadow: 0 5px 6px -6px #bbb;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0.95) 100%);
+      border-bottom: 2px solid $terminal-green-dim;
+      box-shadow: 
+        0 5px 20px rgba(0, 255, 65, 0.3),
+        inset 0 1px 0 rgba(0, 255, 65, 0.2);
       z-index: 100;
+      backdrop-filter: blur(10px);
   }
 }
 .site-header a {
   text-decoration: none;
+  color: $terminal-green-bright;
+  transition: all 0.3s ease;
 }
+
+.site-header a:hover {
+  text-shadow: 
+    0 0 5px $terminal-green-glow,
+    0 0 10px $terminal-green-glow;
+}
+
 .site-title {
-  font-size: 26px;
-  font-weight: 400;
+  font-size: 28px;
+  font-weight: 900;
+  font-family: $heading-font-family;
   line-height: 56px;
   margin-bottom: 0;
   margin-top: 0;
-  padding-left: 10px;
+  padding-left: 15px;
   float: left;
+  color: $terminal-green-bright;
+  text-shadow: 
+    0 0 10px $terminal-green-glow,
+    0 0 20px $terminal-green-glow;
+  animation: logoGlow 3s ease-in-out infinite alternate;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
+
+@keyframes logoGlow {
+  from { 
+    text-shadow: 0 0 10px $terminal-green-glow, 0 0 20px $terminal-green-glow;
+  }
+  to { 
+    text-shadow: 0 0 15px $terminal-green-glow, 0 0 30px $terminal-green-glow, 0 0 40px $terminal-green-glow;
+  }
+}
+
 .menu-list {
   line-height: $header-thickness;
   float: right;
+  padding-right: 15px;
 }
+
 .menu-link {
-  padding: 5px 10px;
+  padding: 8px 15px;
+  color: $terminal-green;
+  font-family: $heading-font-family;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.menu-link:hover {
+  color: $terminal-green-bright;
+  border: 1px solid $terminal-green-dim;
+  background: rgba(0, 255, 65, 0.1);
+  text-shadow: 0 0 5px $terminal-green-glow;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
 }
 
 /*
@@ -56,39 +126,65 @@
     padding-right: 0.25rem;
   }
   .dropbtn {
-      background-color: white;
-      color: black;
+      background: rgba(0, 255, 65, 0.1);
+      color: $terminal-green-bright;
+      border: 1px solid $terminal-green-dim;
       padding: 16px;
       margin-top: 4px;
       font-size: 16px;
-      border: none;
+      font-family: $heading-font-family;
+      font-weight: 700;
       cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
   }
+  
+  .dropbtn:hover {
+      background: rgba(0, 255, 65, 0.2);
+      text-shadow: 0 0 5px $terminal-green-glow;
+      box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+  }
+  
   .dropdown {
       position: relative;
       display: inline-block;
   }
+  
   .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #f9f9f9;
+      background: rgba(0, 0, 0, 0.95);
+      border: 1px solid $terminal-green-dim;
       min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      box-shadow: 
+        0px 8px 16px 0px rgba(0, 255, 65, 0.3),
+        inset 0 0 10px rgba(0, 255, 65, 0.1);
       z-index: 1;
+      backdrop-filter: blur(10px);
   }
+  
   .dropdown-content a {
-      color: black;
+      color: $terminal-green;
       padding: 12px 16px;
       text-decoration: none;
       display: block;
+      font-family: $heading-font-family;
+      transition: all 0.3s ease;
   }
+  
   .dropdown-content a:hover {
-    background-color: #f1f1f1
+    background: rgba(0, 255, 65, 0.1);
+    color: $terminal-green-bright;
+    text-shadow: 0 0 5px $terminal-green-glow;
   }
+  
   .dropdown:hover .dropdown-content {
       display: block;
   }
+  
   .dropdown:hover .dropbtn {
-      background-color: #f1f1f1;
+      background: rgba(0, 255, 65, 0.2);
+      text-shadow: 0 0 5px $terminal-green-glow;
   }
 }

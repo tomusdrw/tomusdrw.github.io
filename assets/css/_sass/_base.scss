@@ -10,42 +10,113 @@ dl, dd, ol, ul, figure {
 }
 
 /*
-  Basic styling
+  Cyberpunk Terminal Styling
 */
 
-/* Headings */
+/* Global body styling */
+body {
+  background-color: $terminal-bg;
+  color: $terminal-green;
+  font-family: $base-font-family;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Scan lines effect */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.03) 2px,
+    rgba(0, 255, 65, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+  animation: scanlines 0.1s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(4px); }
+}
+
+/* Screen flicker effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 65, 0.02);
+  pointer-events: none;
+  z-index: 999;
+  animation: flicker 0.15s infinite linear alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  100% { opacity: 0.98; }
+}
+
+/* Headings with cyberpunk glow */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
   line-height: 1.25;
   text-rendering: optimizeLegibility;
+  font-family: $heading-font-family;
+  color: $terminal-green-bright;
+  text-shadow: 
+    0 0 5px $terminal-green-glow,
+    0 0 10px $terminal-green-glow,
+    0 0 15px $terminal-green-glow;
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from { text-shadow: 0 0 5px $terminal-green-glow, 0 0 10px $terminal-green-glow, 0 0 15px $terminal-green-glow; }
+  to { text-shadow: 0 0 10px $terminal-green-glow, 0 0 20px $terminal-green-glow, 0 0 30px $terminal-green-glow; }
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  font-weight: 900;
 }
 h2 {
   margin-top: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 h3 {
   margin-top: 1.5rem;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 h4, h5, h6 {
   margin-top: 1rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
-/* Body */
+/* Body text with terminal styling */
 body {
   font-family: $base-font-family;
 }
+
 body img {
     align: middle;
     margin: 5px auto auto auto;
     display: block;
     max-width: 600px;
+    border: 1px solid $terminal-green-dim;
+    box-shadow: 0 0 10px $terminal-shadow;
+    filter: brightness(0.9) contrast(1.1);
 }
 
 p {
@@ -56,6 +127,8 @@ p {
   margin-right: 0;
   line-height: 1.65;
   font-family: $body-font-family;
+  color: $terminal-green;
+  text-shadow: 0 0 2px $terminal-shadow;
 }
 
 /* Lists */
@@ -84,39 +157,104 @@ dd {
 }
 
 /*
-  Links
+  Cyberpunk Links
 */
 
 a {
-  color: $brand-color;
+  color: $terminal-green-bright;
   text-decoration: none;
+  text-shadow: 0 0 3px $terminal-green-glow;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: $terminal-green-bright;
+  text-shadow: 
+    0 0 5px $terminal-green-glow,
+    0 0 10px $terminal-green-glow,
+    0 0 15px $terminal-green-glow;
+  animation: linkPulse 0.5s ease-in-out;
+}
+
+@keyframes linkPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, $terminal-green-bright, transparent);
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
 }
 
 /*
-  Blockquote
+  Cyberpunk Blockquote
 */
 
 blockquote {
   margin: 10px 20px 10px;
-  padding: 0px 15px;
-  border-left: 0.25em solid #ccc;
-  color: #999;
+  padding: 15px 20px;
+  border-left: 3px solid $terminal-green;
+  background: rgba(0, 255, 65, 0.05);
+  color: $terminal-green-dim;
   line-height: 1.5;
+  font-style: italic;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+blockquote::before {
+  content: '>';
+  position: absolute;
+  left: 5px;
+  top: 15px;
+  color: $terminal-green-bright;
+  font-weight: bold;
+  text-shadow: 0 0 5px $terminal-green-glow;
 }
 
 /**
- * Tables
+ * Cyberpunk Tables
  */
  table {
      border-collapse: collapse;
      margin-bottom: 30px;
      width: 100%;
+     background: rgba(0, 255, 65, 0.02);
+     box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
  }
 
  table, th, td {
-     border: 1px solid black;
+     border: 1px solid $terminal-green-dim;
  }
- th, td {
+ 
+ th {
      padding: 15px;
      text-align: left;
+     background: rgba(0, 255, 65, 0.1);
+     color: $terminal-green-bright;
+     text-shadow: 0 0 3px $terminal-green-glow;
+     font-weight: bold;
+ }
+ 
+ td {
+     padding: 15px;
+     text-align: left;
+     color: $terminal-green;
+     transition: background 0.3s ease;
+ }
+ 
+ tr:hover td {
+     background: rgba(0, 255, 65, 0.05);
  }
