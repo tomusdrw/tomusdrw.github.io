@@ -3,23 +3,35 @@
 ---
 
 /*
-  Site variables
+  Site variables - Cyberpunk Terminal Theme
 */
 
-$base-font-family: 'Roboto', sans-serif;
+// Import Google Fonts for retro terminal aesthetic
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Orbitron:wght@400;700;900&display=swap');
 
-$body-font-family: 'Roboto', sans-serif;
+// Terminal color scheme
+$terminal-bg: #000000;
+$terminal-green: #00ff41;
+$terminal-green-bright: #39ff14;
+$terminal-green-dim: #00cc33;
+$terminal-green-glow: rgba(0, 255, 65, 0.8);
+$terminal-shadow: rgba(0, 255, 65, 0.3);
 
-$code-font-family: "Source Code Pro", monospace;
+// Typography
+$base-font-family: 'Share Tech Mono', 'Courier New', monospace;
+$body-font-family: 'Share Tech Mono', 'Courier New', monospace;
+$code-font-family: 'Share Tech Mono', 'Courier New', monospace;
+$heading-font-family: 'Orbitron', 'Share Tech Mono', monospace;
 
-$brand-color: black;
+// Brand colors
+$brand-color: $terminal-green;
+$text-color: $terminal-green;
+$bg-color: $terminal-bg;
 
+// Layout
 $container-width: 1100px;
-
 $tablet-width: 600px;
-
 $phone-width: 480px;
-
 $header-thickness: 56px;
 
 @import "_sass/-sections-dir";

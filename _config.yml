@@ -16,10 +16,10 @@ sass:
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           "todr.me"
 description:	       "I'm just going to leave this here"
-author:              "Tomasz Drwięga"
+author:              "Tomek Drwięga"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
 #feed:
 #  path: rss-feed.xml
 
-theme: jekyll-theme-minimal
+# theme: jekyll-theme-minimal
