@@ -66,7 +66,7 @@ body::after {
   100% { opacity: 0.98; }
 }
 
-/* Headings with cyberpunk glow */
+/* Headings with subtle cyberpunk glow */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
@@ -74,16 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   text-rendering: optimizeLegibility;
   font-family: $heading-font-family;
   color: $terminal-green-bright;
-  text-shadow: 
-    0 0 5px $terminal-green-glow,
-    0 0 10px $terminal-green-glow,
-    0 0 15px $terminal-green-glow;
-  animation: textGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes textGlow {
-  from { text-shadow: 0 0 5px $terminal-green-glow, 0 0 10px $terminal-green-glow, 0 0 15px $terminal-green-glow; }
-  to { text-shadow: 0 0 10px $terminal-green-glow, 0 0 20px $terminal-green-glow, 0 0 30px $terminal-green-glow; }
+  text-shadow: 0 0 2px $terminal-green-glow;
 }
 
 h1 {
@@ -128,7 +119,6 @@ p {
   line-height: 1.65;
   font-family: $body-font-family;
   color: $terminal-green;
-  text-shadow: 0 0 2px $terminal-shadow;
 }
 
 /* Lists */
@@ -163,17 +153,13 @@ dd {
 a {
   color: $terminal-green-bright;
   text-decoration: none;
-  text-shadow: 0 0 3px $terminal-green-glow;
   transition: all 0.3s ease;
   position: relative;
 }
 
 a:hover {
   color: $terminal-green-bright;
-  text-shadow: 
-    0 0 5px $terminal-green-glow,
-    0 0 10px $terminal-green-glow,
-    0 0 15px $terminal-green-glow;
+  text-shadow: 0 0 3px $terminal-green-glow;
   animation: linkPulse 0.5s ease-in-out;
 }
 
@@ -221,7 +207,6 @@ blockquote::before {
   top: 15px;
   color: $terminal-green-bright;
   font-weight: bold;
-  text-shadow: 0 0 5px $terminal-green-glow;
 }
 
 /**
@@ -244,7 +229,6 @@ blockquote::before {
      text-align: left;
      background: rgba(0, 255, 65, 0.1);
      color: $terminal-green-bright;
-     text-shadow: 0 0 3px $terminal-green-glow;
      font-weight: bold;
  }
  

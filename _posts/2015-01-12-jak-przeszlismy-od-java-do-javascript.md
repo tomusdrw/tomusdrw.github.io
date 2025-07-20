@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jak przeszliśmy od Java do Javascript"
-author: "Tomasz Drwięga"
+author: "Tomek Drwięga"
 categories: old
 tags: [old]
 image: up.jpg

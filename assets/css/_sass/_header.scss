@@ -49,9 +49,7 @@
 }
 
 .site-header a:hover {
-  text-shadow: 
-    0 0 5px $terminal-green-glow,
-    0 0 10px $terminal-green-glow;
+  text-shadow: 0 0 3px $terminal-green-glow;
 }
 
 .site-title {
@@ -64,22 +62,11 @@
   padding-left: 15px;
   float: left;
   color: $terminal-green-bright;
-  text-shadow: 
-    0 0 10px $terminal-green-glow,
-    0 0 20px $terminal-green-glow;
-  animation: logoGlow 3s ease-in-out infinite alternate;
+  text-shadow: 0 0 3px $terminal-green-glow;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-@keyframes logoGlow {
-  from { 
-    text-shadow: 0 0 5px $terminal-green-glow, 0 0 10px $terminal-green-glow;
-  }
-  to { 
-    text-shadow: 0 0 8px $terminal-green-glow, 0 0 15px $terminal-green-glow;
-  }
-}
 
 .menu-list {
   line-height: $header-thickness;
@@ -102,7 +89,6 @@
   color: $terminal-green-bright;
   border: 1px solid $terminal-green-dim;
   background: rgba(0, 255, 65, 0.1);
-  text-shadow: 0 0 5px $terminal-green-glow;
   box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
 }
 
@@ -142,7 +128,6 @@
   
   .dropbtn:hover {
       background: rgba(0, 255, 65, 0.2);
-      text-shadow: 0 0 5px $terminal-green-glow;
       box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
   }
   
@@ -176,7 +161,6 @@
   .dropdown-content a:hover {
     background: rgba(0, 255, 65, 0.1);
     color: $terminal-green-bright;
-    text-shadow: 0 0 5px $terminal-green-glow;
   }
   
   .dropdown:hover .dropdown-content {
@@ -185,6 +169,5 @@
   
   .dropdown:hover .dropbtn {
       background: rgba(0, 255, 65, 0.2);
-      text-shadow: 0 0 5px $terminal-green-glow;
   }
 }
