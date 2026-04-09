@@ -1,16 +1,16 @@
 @use 'variables' as *;
 
 .footer {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0.95) 100%);
-  color: $terminal-green;
+  background: linear-gradient(135deg, var(--terminal-bg-95) 0%, var(--terminal-green-01) 50%, var(--terminal-bg-95) 100%);
+  color: var(--terminal-green);
   text-align: center;
   min-height: 56px;
   line-height: 45px;
   width: 100%;
-  border-top: 2px solid $terminal-green-dim;
-  box-shadow: 
-    0 -5px 20px rgba(0, 255, 65, 0.3),
-    inset 0 1px 0 rgba(0, 255, 65, 0.2);
+  border-top: 2px solid var(--terminal-green-dim);
+  box-shadow:
+    0 -5px 20px var(--terminal-green-03),
+    inset 0 1px 0 var(--terminal-green-02);
   position: relative;
   font-family: $base-font-family;
 }
@@ -26,29 +26,29 @@
     90deg,
     transparent,
     transparent 2px,
-    rgba(0, 255, 65, 0.05) 2px,
-    rgba(0, 255, 65, 0.05) 4px
+    var(--terminal-green-005) 2px,
+    var(--terminal-green-005) 4px
   );
   pointer-events: none;
 }
 
 .footer a {
-  color: $terminal-green-bright;
+  color: var(--terminal-green-bright);
   padding: 0px 15px 0px;
   text-decoration: none;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  text-shadow: 0 0 3px $terminal-green-glow;
+  text-shadow: 0 0 3px var(--terminal-green-glow);
 }
 
 .footer a:hover {
-  color: $terminal-green-bright;
-  text-shadow: 
-    0 0 5px $terminal-green-glow,
-    0 0 10px $terminal-green-glow,
-    0 0 15px $terminal-green-glow;
+  color: var(--terminal-green-bright);
+  text-shadow:
+    0 0 5px var(--terminal-green-glow),
+    0 0 10px var(--terminal-green-glow),
+    0 0 15px var(--terminal-green-glow);
   animation: footerLinkPulse 0.5s ease-in-out;
 }
 
@@ -60,15 +60,15 @@
 
 @media (max-width: $container-width) {
   .footer {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0.95) 100%);
-    color: $terminal-green;
+    background: linear-gradient(135deg, var(--terminal-bg-95) 0%, var(--terminal-green-01) 50%, var(--terminal-bg-95) 100%);
+    color: var(--terminal-green);
     text-align: center;
     min-height: 56px;
     line-height: 45px;
     width: 100%;
-    border-top: 2px solid $terminal-green-dim;
-    box-shadow: 
-      0 -5px 20px rgba(0, 255, 65, 0.3),
-      inset 0 1px 0 rgba(0, 255, 65, 0.2);
+    border-top: 2px solid var(--terminal-green-dim);
+    box-shadow:
+      0 -5px 20px var(--terminal-green-03),
+      inset 0 1px 0 var(--terminal-green-02);
   }
 }

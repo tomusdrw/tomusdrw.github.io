@@ -4,11 +4,11 @@
   min-height: 56px;
   width: $container-width;
   position: fixed;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0.95) 100%);
-  border-bottom: 2px solid $terminal-green-dim;
-  box-shadow: 
-    0 5px 20px rgba(0, 255, 65, 0.3),
-    inset 0 1px 0 rgba(0, 255, 65, 0.2);
+  background: linear-gradient(135deg, var(--terminal-bg-95) 0%, var(--terminal-green-01) 50%, var(--terminal-bg-95) 100%);
+  border-bottom: 2px solid var(--terminal-green-dim);
+  box-shadow:
+    0 5px 20px var(--terminal-green-03),
+    inset 0 1px 0 var(--terminal-green-02);
   z-index: 100;
   backdrop-filter: blur(10px);
 }
@@ -24,8 +24,8 @@
     90deg,
     transparent,
     transparent 2px,
-    rgba(0, 255, 65, 0.05) 2px,
-    rgba(0, 255, 65, 0.05) 4px
+    var(--terminal-green-005) 2px,
+    var(--terminal-green-005) 4px
   );
   pointer-events: none;
 }
@@ -35,25 +35,25 @@
       min-height: 56px;
       width: 95vw;
       position: fixed;
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 255, 65, 0.1) 50%, rgba(0, 0, 0, 0.95) 100%);
-      border-bottom: 2px solid $terminal-green-dim;
-      box-shadow: 
-        0 5px 20px rgba(0, 255, 65, 0.3),
-        inset 0 1px 0 rgba(0, 255, 65, 0.2);
+      background: linear-gradient(135deg, var(--terminal-bg-95) 0%, var(--terminal-green-01) 50%, var(--terminal-bg-95) 100%);
+      border-bottom: 2px solid var(--terminal-green-dim);
+      box-shadow:
+        0 5px 20px var(--terminal-green-03),
+        inset 0 1px 0 var(--terminal-green-02);
       z-index: 100;
       backdrop-filter: blur(10px);
   }
 }
 .site-header a {
   text-decoration: none;
-  color: $terminal-green-bright;
+  color: var(--terminal-green-bright);
   transition: all 0.3s ease;
 }
 
 .site-header a:hover {
-  text-shadow: 
-    0 0 5px $terminal-green-glow,
-    0 0 10px $terminal-green-glow;
+  text-shadow:
+    0 0 5px var(--terminal-green-glow),
+    0 0 10px var(--terminal-green-glow);
 }
 
 .site-title {
@@ -65,8 +65,8 @@
   margin-top: 0;
   padding-left: 15px;
   float: left;
-  color: $terminal-green-bright;
-  text-shadow: 0 0 2px $terminal-shadow;
+  color: var(--terminal-green-bright);
+  text-shadow: 0 0 2px var(--terminal-shadow);
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -80,7 +80,7 @@
 
 .menu-link {
   padding: 8px 15px;
-  color: $terminal-green;
+  color: var(--terminal-green);
   font-family: $heading-font-family;
   font-weight: 700;
   text-transform: uppercase;
@@ -90,11 +90,31 @@
 }
 
 .menu-link:hover {
-  color: $terminal-green-bright;
-  border: 1px solid $terminal-green-dim;
-  background: rgba(0, 255, 65, 0.1);
-  text-shadow: 0 0 5px $terminal-green-glow;
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+  color: var(--terminal-green-bright);
+  border: 1px solid var(--terminal-green-dim);
+  background: var(--terminal-green-01);
+  text-shadow: 0 0 5px var(--terminal-green-glow);
+  box-shadow: 0 0 10px var(--terminal-green-02);
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--terminal-green);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px 10px;
+  line-height: 1;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+}
+
+.theme-toggle:hover {
+  color: var(--terminal-green-bright);
+  border-color: var(--terminal-green-dim);
+  background: var(--terminal-green-01);
+  text-shadow: 0 0 5px var(--terminal-green-glow);
 }
 
 /*
@@ -117,9 +137,9 @@
     padding-right: 0.25rem;
   }
   .dropbtn {
-      background: rgba(0, 255, 65, 0.1);
-      color: $terminal-green-bright;
-      border: 1px solid $terminal-green-dim;
+      background: var(--terminal-green-01);
+      color: var(--terminal-green-bright);
+      border: 1px solid var(--terminal-green-dim);
       padding: 16px;
       margin-top: 4px;
       font-size: 16px;
@@ -130,52 +150,52 @@
       letter-spacing: 1px;
       transition: all 0.3s ease;
   }
-  
+
   .dropbtn:hover {
-      background: rgba(0, 255, 65, 0.2);
-      text-shadow: 0 0 5px $terminal-green-glow;
-      box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+      background: var(--terminal-green-02);
+      text-shadow: 0 0 5px var(--terminal-green-glow);
+      box-shadow: 0 0 10px var(--terminal-green-03);
   }
-  
+
   .dropdown {
       position: relative;
       display: inline-block;
   }
-  
+
   .dropdown-content {
       display: none;
       position: absolute;
-      background: rgba(0, 0, 0, 0.95);
-      border: 1px solid $terminal-green-dim;
+      background: var(--terminal-bg-95);
+      border: 1px solid var(--terminal-green-dim);
       min-width: 160px;
-      box-shadow: 
-        0px 8px 16px 0px rgba(0, 255, 65, 0.3),
-        inset 0 0 10px rgba(0, 255, 65, 0.1);
+      box-shadow:
+        0px 8px 16px 0px var(--terminal-green-03),
+        inset 0 0 10px var(--terminal-green-01);
       z-index: 1;
       backdrop-filter: blur(10px);
   }
-  
+
   .dropdown-content a {
-      color: $terminal-green;
+      color: var(--terminal-green);
       padding: 12px 16px;
       text-decoration: none;
       display: block;
       font-family: $heading-font-family;
       transition: all 0.3s ease;
   }
-  
+
   .dropdown-content a:hover {
-    background: rgba(0, 255, 65, 0.1);
-    color: $terminal-green-bright;
-    text-shadow: 0 0 5px $terminal-green-glow;
+    background: var(--terminal-green-01);
+    color: var(--terminal-green-bright);
+    text-shadow: 0 0 5px var(--terminal-green-glow);
   }
-  
+
   .dropdown:hover .dropdown-content {
       display: block;
   }
-  
+
   .dropdown:hover .dropbtn {
-      background: rgba(0, 255, 65, 0.2);
-      text-shadow: 0 0 5px $terminal-green-glow;
+      background: var(--terminal-green-02);
+      text-shadow: 0 0 5px var(--terminal-green-glow);
   }
 }
