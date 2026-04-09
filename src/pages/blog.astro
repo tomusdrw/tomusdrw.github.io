@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const allPosts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+
+<BaseLayout title="Blog" layoutClass="home">
+  {allPosts.map(post => (
+    <article>
+      <a href={`/${post.slug}`}>
+        <div
+          class="featured-posts"
+          style={post.data.image ? `background-image:url(/assets/img/${post.data.image})` : undefined}
+        >
+          <h2><span>{post.data.title}</span></h2>
+        </div>
+      </a>
+    </article>
+  ))}
+</BaseLayout>

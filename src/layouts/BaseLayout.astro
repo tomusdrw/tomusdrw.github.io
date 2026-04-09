@@ -1,0 +1,47 @@
+---
+import { siteSettings } from '../data/settings';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/main.scss';
+
+interface Props {
+  title: string;
+  layoutClass?: string;
+  description?: string;
+}
+
+const { title, layoutClass = 'default', description } = Astro.props;
+
+const pageTitle = title === 'Home'
+  ? `${siteSettings.title} | ${siteSettings.description}`
+  : `${title} | ${siteSettings.title}`;
+
+const metaDescription = description || siteSettings.description;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={metaDescription} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:url" content={Astro.url.href} />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="alternate" type="application/rss+xml" title={siteSettings.title} href="/rss.xml" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body class={`layout-${layoutClass}`}>
+  <div class="container">
+    <Header />
+    <div class="posts-wrapper">
+      <slot />
+    </div>
+    <Footer />
+  </div>
+</body>
+</html>

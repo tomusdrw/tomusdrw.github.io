@@ -1,0 +1,14 @@
+---
+import { siteSettings } from '../data/settings';
+---
+
+<footer class="footer">
+  {siteSettings.social.map(item => (
+    <a href={item.link} class="menu-link" target="_blank" rel="me">
+      <i class={`fa fa-${item.icon}`} aria-hidden="true"></i>
+    </a>
+  ))}
+  <div class="post-date">
+    <a href="/">{siteSettings.title} | {siteSettings.description} by {siteSettings.author}</a>
+  </div>
+</footer>

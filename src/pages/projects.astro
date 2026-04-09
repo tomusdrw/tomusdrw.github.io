@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/projects';
+---
+
+<BaseLayout title="Projects" layoutClass="page">
+  <div class="projects-page">
+    <h1>// DEPLOYED PROJECTS</h1>
+    <p class="projects-subtitle">GitHub Pages deployments</p>
+
+    {projects.map(category => (
+      <div class="project-category">
+        <h2 class="category-title">&gt; {category.category}</h2>
+        <div class="project-grid">
+          {[...category.items].sort((a, b) => b.created.localeCompare(a.created)).map(project => (
+            <a href={project.url} target="_blank" class="project-card">
+              <div class="project-card-inner">
+                <h3 class="project-name">{project.name}</h3>
+                <div class="project-dates">
+                  <span>created {project.created}</span>
+                  {project.created !== project.updated && <span> · updated {project.updated}</span>}
+                </div>
+                <p class="project-desc">{project.description}</p>
+                <div class="project-links">
+                  <span class="project-link project-link-repo" onclick="event.preventDefault(); event.stopPropagation(); window.open(this.dataset.href, '_blank')" data-href={project.repo}>SOURCE</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+.projects-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.projects-subtitle {
+  color: #00cc33;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+}
+
+.project-category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  display: block;
+  background: rgba(0, 255, 65, 0.03);
+  border: 1px solid rgba(0, 255, 65, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card::after {
+  display: none;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff41, transparent);
+  transition: left 0.5s ease;
+}
+
+.project-card:hover {
+  border-color: #00ff41;
+  background: rgba(0, 255, 65, 0.07);
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.15), inset 0 0 20px rgba(0, 255, 65, 0.05);
+  transform: translateY(-2px);
+}
+
+.project-card:hover::before {
+  left: 100%;
+}
+
+.project-card-inner {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.project-name {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+  color: #39ff14;
+  word-break: break-all;
+}
+
+.project-dates {
+  font-size: 0.75rem;
+  color: #00cc33;
+  opacity: 0.5;
+  margin-bottom: 0.5rem;
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  text-shadow: none !important;
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: #00cc33;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.project-link-repo {
+  font-family: 'Orbitron', 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  color: #00cc33;
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  background: transparent;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  text-shadow: none !important;
+}
+
+.project-link-repo:hover {
+  border-color: #00ff41;
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

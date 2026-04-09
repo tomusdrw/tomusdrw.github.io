@@ -1,0 +1,171 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="100%" stop-color="#001a0d"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff41" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#00ff41" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00ff41" stop-opacity="0.08"/>
+      <stop offset="70%" stop-color="#00ff41" stop-opacity="0.02"/>
+      <stop offset="100%" stop-color="#00ff41" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bg)"/>
+
+  <!-- Subtle grid -->
+  <g opacity="0.06" stroke="#00ff41" stroke-width="0.5">
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+  </g>
+
+  <!-- Center ambient glow -->
+  <circle cx="600" cy="300" r="350" fill="url(#centerGlow)"/>
+
+  <!-- Network connections (edges) -->
+  <g stroke="#00ff41" stroke-width="1" opacity="0.15">
+    <!-- Central hub connections -->
+    <line x1="600" y1="300" x2="350" y2="180"/>
+    <line x1="600" y1="300" x2="850" y2="180"/>
+    <line x1="600" y1="300" x2="280" y2="350"/>
+    <line x1="600" y1="300" x2="920" y2="350"/>
+    <line x1="600" y1="300" x2="380" y2="470"/>
+    <line x1="600" y1="300" x2="820" y2="470"/>
+    <!-- Outer connections -->
+    <line x1="350" y1="180" x2="280" y2="350"/>
+    <line x1="850" y1="180" x2="920" y2="350"/>
+    <line x1="280" y1="350" x2="380" y2="470"/>
+    <line x1="920" y1="350" x2="820" y2="470"/>
+    <line x1="350" y1="180" x2="850" y2="180"/>
+    <line x1="380" y1="470" x2="820" y2="470"/>
+    <!-- Far outer -->
+    <line x1="350" y1="180" x2="150" y2="120"/>
+    <line x1="850" y1="180" x2="1050" y2="120"/>
+    <line x1="280" y1="350" x2="100" y2="380"/>
+    <line x1="920" y1="350" x2="1100" y2="380"/>
+    <line x1="380" y1="470" x2="200" y2="530"/>
+    <line x1="820" y1="470" x2="1000" y2="530"/>
+  </g>
+
+  <!-- Animated-looking data flow dots along edges -->
+  <g fill="#00ff41" opacity="0.3">
+    <circle cx="475" cy="240" r="2"/>
+    <circle cx="725" cy="240" r="2"/>
+    <circle cx="440" cy="325" r="2"/>
+    <circle cx="760" cy="325" r="2"/>
+    <circle cx="490" cy="385" r="2"/>
+    <circle cx="710" cy="385" r="2"/>
+    <circle cx="500" cy="180" r="1.5"/>
+    <circle cx="700" cy="180" r="1.5"/>
+    <circle cx="600" cy="470" r="1.5"/>
+  </g>
+
+  <!-- Outer nodes (small) -->
+  <g filter="url(#glow)">
+    <circle cx="150" cy="120" r="4" fill="#00ff41" opacity="0.4"/>
+    <circle cx="1050" cy="120" r="4" fill="#00ff41" opacity="0.4"/>
+    <circle cx="100" cy="380" r="4" fill="#00ff41" opacity="0.4"/>
+    <circle cx="1100" cy="380" r="4" fill="#00ff41" opacity="0.4"/>
+    <circle cx="200" cy="530" r="4" fill="#00ff41" opacity="0.4"/>
+    <circle cx="1000" cy="530" r="4" fill="#00ff41" opacity="0.4"/>
+  </g>
+
+  <!-- Inner ring nodes -->
+  <g filter="url(#glow)">
+    <!-- Top left: PVM Debugger -->
+    <circle cx="350" cy="180" r="25" fill="none" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="350" cy="180" r="25" fill="url(#nodeGlow)"/>
+    <circle cx="350" cy="180" r="6" fill="#00ff41" opacity="0.6"/>
+    <text x="350" y="225" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="10" opacity="0.5">PVM DEBUG</text>
+
+    <!-- Top right: Gray Paper -->
+    <circle cx="850" cy="180" r="25" fill="none" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="850" cy="180" r="25" fill="url(#nodeGlow)"/>
+    <circle cx="850" cy="180" r="6" fill="#00ff41" opacity="0.6"/>
+    <text x="850" y="225" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="10" opacity="0.5">GRAY PAPER</text>
+
+    <!-- Mid left: JAM Codec -->
+    <circle cx="280" cy="350" r="25" fill="none" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="280" cy="350" r="25" fill="url(#nodeGlow)"/>
+    <circle cx="280" cy="350" r="6" fill="#00ff41" opacity="0.6"/>
+    <text x="280" y="395" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="10" opacity="0.5">JAM CODEC</text>
+
+    <!-- Mid right: JAM Search -->
+    <circle cx="920" cy="350" r="25" fill="none" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="920" cy="350" r="25" fill="url(#nodeGlow)"/>
+    <circle cx="920" cy="350" r="6" fill="#00ff41" opacity="0.6"/>
+    <text x="920" y="395" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="10" opacity="0.5">JAM SEARCH</text>
+
+    <!-- Bottom left: Trie Vis -->
+    <circle cx="380" cy="470" r="25" fill="none" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="380" cy="470" r="25" fill="url(#nodeGlow)"/>
+    <circle cx="380" cy="470" r="6" fill="#00ff41" opacity="0.6"/>
+    <text x="380" y="515" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="10" opacity="0.5">TRIE VIS</text>
+
+    <!-- Bottom right: Test Vectors -->
+    <circle cx="820" cy="470" r="25" fill="none" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="820" cy="470" r="25" fill="url(#nodeGlow)"/>
+    <circle cx="820" cy="470" r="6" fill="#00ff41" opacity="0.6"/>
+    <text x="820" y="515" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="10" opacity="0.5">TEST VEC</text>
+  </g>
+
+  <!-- Central node: typeberry -->
+  <g filter="url(#softglow)">
+    <circle cx="600" cy="300" r="60" fill="none" stroke="#00ff41" stroke-width="2" opacity="0.6"/>
+    <circle cx="600" cy="300" r="45" fill="none" stroke="#00ff41" stroke-width="1" opacity="0.3"/>
+    <circle cx="600" cy="300" r="60" fill="url(#nodeGlow)"/>
+  </g>
+
+  <!-- Typeberry hex pattern inside center -->
+  <g stroke="#00ff41" stroke-width="0.5" fill="none" opacity="0.2">
+    <polygon points="600,260 620,275 620,295 600,310 580,295 580,275"/>
+    <polygon points="600,270 615,280 615,295 600,305 585,295 585,280"/>
+  </g>
+
+  <!-- Center text -->
+  <text x="600" y="295" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="16" font-weight="bold" filter="url(#glow)" opacity="0.9">typeberry</text>
+  <text x="600" y="312" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="9" opacity="0.5">JAM PROTOCOL</text>
+
+  <!-- Title area -->
+  <text x="600" y="65" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="28" font-weight="bold" letter-spacing="4" opacity="0.8" filter="url(#glow)">FLUFFYLABS</text>
+  <text x="600" y="88" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="12" letter-spacing="8" opacity="0.35">BUILDING THE JAM ECOSYSTEM</text>
+
+  <!-- Bottom decorative line -->
+  <line x1="300" y1="565" x2="900" y2="565" stroke="#00ff41" stroke-width="0.5" opacity="0.15"/>
+  <text x="600" y="585" text-anchor="middle" fill="#00ff41" font-family="'Courier New', monospace" font-size="9" opacity="0.2">fluffylabs.dev</text>
+
+  <!-- Corner accents -->
+  <g stroke="#00ff41" stroke-width="1" opacity="0.15">
+    <polyline points="10,30 10,10 30,10" fill="none"/>
+    <polyline points="1170,10 1190,10 1190,30" fill="none"/>
+    <polyline points="10,570 10,590 30,590" fill="none"/>
+    <polyline points="1170,590 1190,590 1190,570" fill="none"/>
+  </g>
+</svg>

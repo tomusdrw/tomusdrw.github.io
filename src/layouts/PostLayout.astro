@@ -1,0 +1,81 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { siteSettings } from '../data/settings';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    date: Date;
+    author?: string;
+    tags?: string[];
+    image?: string;
+  };
+  slug: string;
+}
+
+const { frontmatter, slug } = Astro.props;
+
+function formatDate(date: Date): string {
+  const d = date.getDate();
+  const suffix = [11, 12, 13].includes(d) ? 'th'
+    : d % 10 === 1 ? 'st'
+    : d % 10 === 2 ? 'nd'
+    : d % 10 === 3 ? 'rd' : 'th';
+  const month = date.toLocaleString('en', { month: 'long' });
+  return `${month} ${d}${suffix}, ${date.getFullYear()}`;
+}
+
+const allPosts = await getCollection('blog');
+const tags = frontmatter.tags || [];
+const relatedPosts = allPosts
+  .filter(p => p.slug !== slug && p.data.tags?.some((t: string) => tags.includes(t)))
+  .slice(0, 2);
+---
+
+<BaseLayout title={frontmatter.title} layoutClass="post">
+  <div class="page-content">
+    <h1>{frontmatter.title}</h1>
+
+    <span class="post-date">
+      {siteSettings.postDatePrefix}
+      {formatDate(frontmatter.date)}
+      {' '}by{' '}
+      {frontmatter.author || siteSettings.author}
+    </span>
+
+    {frontmatter.image && (
+      <div class="featured-image">
+        <img src={`/assets/img/${frontmatter.image}`} alt={frontmatter.title} />
+      </div>
+    )}
+
+    <article>
+      <slot />
+    </article>
+
+    {relatedPosts.length > 0 && (
+      <div class="related">
+        <h2>{siteSettings.relatedPosts}</h2>
+        <ul class="related-posts">
+          {relatedPosts.map(post => (
+            <li>
+              <h3>
+                <a href={`/${post.slug}`}>
+                  <div class="related-thumbnail">
+                    {post.data.image && (
+                      <img src={`/assets/img/${post.data.image}`} alt={post.data.title} />
+                    )}
+                  </div>
+                  <div class="related-title">
+                    {post.data.title}
+                  </div>
+                </a>
+              </h3>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+</BaseLayout>
