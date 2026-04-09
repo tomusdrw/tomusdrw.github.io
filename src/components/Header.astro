@@ -15,6 +15,9 @@ import { siteSettings } from '../data/settings';
         <i class={`fa fa-${item.icon}`} aria-hidden="true"></i>
       </a>
     ))}
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch theme">
+      <span class="theme-icon"></span>
+    </button>
   </nav>
   <div class="dropdown">
     <button class="dropbtn"><i class="fa fa-bars" aria-hidden="true"></i></button>
@@ -27,6 +30,31 @@ import { siteSettings } from '../data/settings';
           <i class={`fa fa-${item.icon}`} aria-hidden="true"></i>
         </a>
       ))}
+      <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Switch theme">
+        <span class="theme-icon"></span>
+      </button>
     </div>
   </div>
 </header>
+
+<script is:inline>
+  function updateToggleIcons() {
+    var isDark = document.documentElement.dataset.theme !== 'light';
+    var icons = document.querySelectorAll('.theme-icon');
+    icons.forEach(function(icon) {
+      icon.textContent = isDark ? '\u2600' : '\u263E';
+    });
+  }
+
+  function toggleTheme() {
+    var current = document.documentElement.dataset.theme;
+    var next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+    updateToggleIcons();
+  }
+
+  document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+  document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+  updateToggleIcons();
+</script>

@@ -33,6 +33,25 @@ const metaDescription = description || siteSettings.description;
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="alternate" type="application/rss+xml" title={siteSettings.title} href="/rss.xml" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" />
+  <script is:inline>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var theme;
+      if (saved === 'light' || saved === 'dark') {
+        theme = saved;
+      } else {
+        theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.dataset.theme = theme;
+
+      // Listen for OS-level theme changes (only when user hasn't explicitly chosen)
+      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          document.documentElement.dataset.theme = e.matches ? 'light' : 'dark';
+        }
+      });
+    })();
+  </script>
   <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body class={`layout-${layoutClass}`}>
