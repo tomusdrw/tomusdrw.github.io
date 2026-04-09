@@ -66,21 +66,9 @@
   padding-left: 15px;
   float: left;
   color: $terminal-green-bright;
-  text-shadow: 
-    0 0 10px $terminal-green-glow,
-    0 0 20px $terminal-green-glow;
-  animation: logoGlow 3s ease-in-out infinite alternate;
+  text-shadow: 0 0 2px $terminal-shadow;
   letter-spacing: 2px;
   text-transform: uppercase;
-}
-
-@keyframes logoGlow {
-  from { 
-    text-shadow: 0 0 5px $terminal-green-glow, 0 0 10px $terminal-green-glow;
-  }
-  to { 
-    text-shadow: 0 0 8px $terminal-green-glow, 0 0 15px $terminal-green-glow;
-  }
 }
 
 

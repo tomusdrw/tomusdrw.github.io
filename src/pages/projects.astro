@@ -13,7 +13,7 @@ import { projects } from '../data/projects';
         <h2 class="category-title">&gt; {category.category}</h2>
         <div class="project-grid">
           {[...category.items].sort((a, b) => b.created.localeCompare(a.created)).map(project => (
-            <div class="project-card">
+            <a href={project.url} target="_blank" class="project-card">
               <div class="project-card-inner">
                 <h3 class="project-name">{project.name}</h3>
                 <div class="project-dates">
@@ -22,11 +22,10 @@ import { projects } from '../data/projects';
                 </div>
                 <p class="project-desc">{project.description}</p>
                 <div class="project-links">
-                  <a href={project.url} target="_blank" class="project-link project-link-live">LIVE</a>
-                  <a href={project.repo} target="_blank" class="project-link project-link-repo">SOURCE</a>
+                  <span class="project-link project-link-repo" onclick="event.preventDefault(); event.stopPropagation(); window.open(this.dataset.href, '_blank')" data-href={project.repo}>SOURCE</span>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
@@ -66,11 +65,18 @@ import { projects } from '../data/projects';
 }
 
 .project-card {
+  display: block;
   background: rgba(0, 255, 65, 0.03);
   border: 1px solid rgba(0, 255, 65, 0.2);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card::after {
+  display: none;
 }
 
 .project-card::before {
@@ -117,6 +123,7 @@ import { projects } from '../data/projects';
   opacity: 0.5;
   margin-bottom: 0.5rem;
   font-family: 'Share Tech Mono', 'Courier New', monospace;
+  text-shadow: none !important;
 }
 
 .project-desc {
@@ -134,37 +141,19 @@ import { projects } from '../data/projects';
   gap: 0.75rem;
 }
 
-.project-link {
+.project-link-repo {
   font-family: 'Orbitron', 'Share Tech Mono', monospace;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
   padding: 6px 14px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-block;
-}
-
-.project-link::after {
-  display: none;
-}
-
-.project-link-live {
-  color: #39ff14;
-  border: 1px solid #39ff14;
-  background: rgba(57, 255, 20, 0.1);
-}
-
-.project-link-live:hover {
-  background: rgba(57, 255, 20, 0.25);
-  box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
-  text-shadow: 0 0 5px rgba(57, 255, 20, 0.8);
-}
-
-.project-link-repo {
   color: #00cc33;
   border: 1px solid rgba(0, 255, 65, 0.3);
   background: transparent;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+  text-shadow: none !important;
 }
 
 .project-link-repo:hover {
