@@ -1,21 +1,8 @@
-// Terminal color scheme
-$terminal-bg: #000000;
-$terminal-green: #00ff41;
-$terminal-green-bright: #39ff14;
-$terminal-green-dim: #00cc33;
-$terminal-green-glow: rgba(0, 255, 65, 0.8);
-$terminal-shadow: rgba(0, 255, 65, 0.3);
-
 // Typography
 $base-font-family: 'Share Tech Mono', 'Courier New', monospace;
 $body-font-family: 'Share Tech Mono', 'Courier New', monospace;
 $code-font-family: 'Share Tech Mono', 'Courier New', monospace;
 $heading-font-family: 'Orbitron', 'Share Tech Mono', monospace;
-
-// Brand colors
-$brand-color: $terminal-green;
-$text-color: $terminal-green;
-$bg-color: $terminal-bg;
 
 // Layout
 $container-width: 1100px;
@@ -23,7 +10,7 @@ $tablet-width: 600px;
 $phone-width: 480px;
 $header-thickness: 56px;
 
-// Social icon colors
+// Social icon colors (brand colors - not theme-dependent)
 $icon-transition-time: 1.0s;
 $envelope-color: #f39c12;
 $twitter-color: #00aced;
@@ -36,3 +23,61 @@ $pinterest-color: #bd081c;
 $medium-color: #00AB6C;
 $codepen-color: black;
 $rss-color: #ff6600;
+
+// Theme colors via CSS custom properties
+:root {
+  --terminal-bg: #000000;
+  --terminal-green: #00ff41;
+  --terminal-green-bright: #39ff14;
+  --terminal-green-dim: #00cc33;
+  --terminal-green-glow: rgba(0, 255, 65, 0.8);
+  --terminal-shadow: rgba(0, 255, 65, 0.3);
+
+  // Derived colors used throughout
+  --terminal-bg-95: rgba(0, 0, 0, 0.95);
+  --terminal-green-01: rgba(0, 255, 65, 0.1);
+  --terminal-green-005: rgba(0, 255, 65, 0.05);
+  --terminal-green-003: rgba(0, 255, 65, 0.03);
+  --terminal-green-002: rgba(0, 255, 65, 0.02);
+  --terminal-green-02: rgba(0, 255, 65, 0.2);
+  --terminal-green-015: rgba(0, 255, 65, 0.15);
+  --terminal-green-007: rgba(0, 255, 65, 0.07);
+  --terminal-green-03: rgba(0, 255, 65, 0.3);
+
+  // Code block background
+  --code-bg: #1a1a2e;
+
+  // Overlay / featured backgrounds
+  --overlay-dark: rgba(0, 0, 0, 0.8);
+  --featured-title-bg: rgba(0, 0, 0, 0.9);
+
+  // Post date color
+  --post-date-color: #9a9a9a;
+}
+
+[data-theme="light"] {
+  --terminal-bg: #f5f5f0;
+  --terminal-green: #006622;
+  --terminal-green-bright: #005522;
+  --terminal-green-dim: #337744;
+  --terminal-green-glow: rgba(0, 160, 50, 0.08);
+  --terminal-shadow: rgba(0, 160, 50, 0.06);
+
+  --terminal-bg-95: rgba(245, 245, 240, 0.98);
+  --terminal-green-01: rgba(0, 102, 34, 0.05);
+  --terminal-green-005: rgba(0, 102, 34, 0.03);
+  --terminal-green-003: rgba(0, 80, 30, 0.015);
+  --terminal-green-002: rgba(0, 80, 30, 0.008);
+  --terminal-green-02: rgba(0, 102, 34, 0.08);
+  --terminal-green-015: rgba(0, 102, 34, 0.06);
+  --terminal-green-007: rgba(0, 102, 34, 0.03);
+  --terminal-green-03: rgba(0, 102, 34, 0.1);
+
+  --code-bg: #f0f0e8;
+
+  // Overlay / featured backgrounds (flipped for light)
+  --overlay-dark: rgba(245, 245, 240, 0.7);
+  --featured-title-bg: rgba(245, 245, 240, 0.92);
+
+  --post-date-color: #666666;
+}

@@ -19,8 +19,8 @@ dl, dd, ol, ul, figure {
 
 /* Global body styling */
 body {
-  background-color: $terminal-bg;
-  color: $terminal-green;
+  background-color: var(--terminal-bg);
+  color: var(--terminal-green);
   font-family: $base-font-family;
   position: relative;
   overflow-x: hidden;
@@ -38,8 +38,8 @@ body::before {
     0deg,
     transparent,
     transparent 2px,
-    rgba(0, 255, 65, 0.03) 2px,
-    rgba(0, 255, 65, 0.03) 4px
+    var(--terminal-green-003) 2px,
+    var(--terminal-green-003) 4px
   );
   pointer-events: none;
   z-index: 1000;
@@ -51,7 +51,7 @@ body::before {
   100% { transform: translateY(4px); }
 }
 
-/* Screen flicker effect */
+/* Screen flicker effect - disabled in light mode */
 body::after {
   content: '';
   position: fixed;
@@ -59,10 +59,14 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 255, 65, 0.02);
+  background: var(--terminal-green-002);
   pointer-events: none;
   z-index: 999;
   animation: flicker 0.15s infinite linear alternate;
+}
+
+[data-theme="light"] body::after {
+  display: none;
 }
 
 @keyframes flicker {
@@ -77,8 +81,8 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
   text-rendering: optimizeLegibility;
   font-family: $heading-font-family;
-  color: $terminal-green-bright;
-  text-shadow: 0 0 2px $terminal-shadow;
+  color: var(--terminal-green-bright);
+  text-shadow: 0 0 2px var(--terminal-shadow);
 }
 
 h1 {
@@ -109,9 +113,14 @@ body img {
     margin: 5px auto auto auto;
     display: block;
     max-width: 600px;
-    border: 1px solid $terminal-green-dim;
-    box-shadow: 0 0 10px $terminal-shadow;
+    border: 1px solid var(--terminal-green-dim);
+    box-shadow: 0 0 10px var(--terminal-shadow);
     filter: brightness(0.9) contrast(1.1);
+}
+
+[data-theme="light"] body img {
+    filter: none;
+    box-shadow: none;
 }
 
 p {
@@ -122,8 +131,8 @@ p {
   margin-right: 0;
   line-height: 1.65;
   font-family: $body-font-family;
-  color: $terminal-green;
-  text-shadow: 0 0 2px $terminal-shadow;
+  color: var(--terminal-green);
+  text-shadow: 0 0 2px var(--terminal-shadow);
 }
 
 /* Lists */
@@ -156,19 +165,19 @@ dd {
 */
 
 a {
-  color: $terminal-green-bright;
+  color: var(--terminal-green-bright);
   text-decoration: none;
-  text-shadow: 0 0 3px $terminal-green-glow;
+  text-shadow: 0 0 3px var(--terminal-green-glow);
   transition: all 0.3s ease;
   position: relative;
 }
 
 a:hover {
-  color: $terminal-green-bright;
-  text-shadow: 
-    0 0 5px $terminal-green-glow,
-    0 0 10px $terminal-green-glow,
-    0 0 15px $terminal-green-glow;
+  color: var(--terminal-green-bright);
+  text-shadow:
+    0 0 5px var(--terminal-green-glow),
+    0 0 10px var(--terminal-green-glow),
+    0 0 15px var(--terminal-green-glow);
   animation: linkPulse 0.5s ease-in-out;
 }
 
@@ -185,7 +194,7 @@ a::after {
   left: 0;
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, $terminal-green-bright, transparent);
+  background: linear-gradient(90deg, transparent, var(--terminal-green-bright), transparent);
   transition: width 0.3s ease;
 }
 
@@ -200,13 +209,13 @@ a:hover::after {
 blockquote {
   margin: 10px 20px 10px;
   padding: 15px 20px;
-  border-left: 3px solid $terminal-green;
-  background: rgba(0, 255, 65, 0.05);
-  color: $terminal-green-dim;
+  border-left: 3px solid var(--terminal-green);
+  background: var(--terminal-green-005);
+  color: var(--terminal-green-dim);
   line-height: 1.5;
   font-style: italic;
   position: relative;
-  box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.1);
+  box-shadow: inset 0 0 10px var(--terminal-green-01);
 }
 
 blockquote::before {
@@ -214,9 +223,9 @@ blockquote::before {
   position: absolute;
   left: 5px;
   top: 15px;
-  color: $terminal-green-bright;
+  color: var(--terminal-green-bright);
   font-weight: bold;
-  text-shadow: 0 0 5px $terminal-green-glow;
+  text-shadow: 0 0 5px var(--terminal-green-glow);
 }
 
 /**
@@ -226,37 +235,37 @@ blockquote::before {
      border-collapse: collapse;
      margin-bottom: 30px;
      width: 100%;
-     background: rgba(0, 255, 65, 0.02);
-     box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+     background: var(--terminal-green-002);
+     box-shadow: 0 0 20px var(--terminal-green-01);
  }
 
  table, th, td {
-     border: 1px solid $terminal-green-dim;
+     border: 1px solid var(--terminal-green-dim);
  }
- 
+
  th {
      padding: 15px;
      text-align: left;
-     background: rgba(0, 255, 65, 0.1);
-     color: $terminal-green-bright;
-     text-shadow: 0 0 3px $terminal-green-glow;
+     background: var(--terminal-green-01);
+     color: var(--terminal-green-bright);
+     text-shadow: 0 0 3px var(--terminal-green-glow);
      font-weight: bold;
  }
- 
+
  td {
      padding: 15px;
      text-align: left;
-     color: $terminal-green;
+     color: var(--terminal-green);
      transition: background 0.3s ease;
  }
- 
+
  tr:hover td {
-     background: rgba(0, 255, 65, 0.05);
+     background: var(--terminal-green-005);
  }
 
  .highlight {
-   background: rgba(0, 255, 65, 0.05);
-   border: 1px solid rgba(0, 255, 65, 0.2);
+   background: var(--terminal-green-005);
+   border: 1px solid var(--terminal-green-02);
    border-radius: 3px;
    padding: 1rem;
    margin: 1rem 0;
@@ -265,7 +274,7 @@ blockquote::before {
 
 /* Front page only - reduced glow effects for better legibility */
 .layout-home h1, .layout-home h2, .layout-home h3, .layout-home h4, .layout-home h5, .layout-home h6 {
-  text-shadow: 0 0 2px $terminal-green-glow;
+  text-shadow: 0 0 2px var(--terminal-green-glow);
   animation: none;
 }
 
@@ -274,7 +283,7 @@ blockquote::before {
 }
 
 .layout-home a:hover {
-  text-shadow: 0 0 3px $terminal-green-glow;
+  text-shadow: 0 0 3px var(--terminal-green-glow);
 }
 
 .layout-home p {
