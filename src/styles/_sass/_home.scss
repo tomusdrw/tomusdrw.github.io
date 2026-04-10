@@ -23,9 +23,9 @@
   bottom: 0;
   background: linear-gradient(
     45deg,
-    rgba(0, 0, 0, 0.8) 0%,
+    var(--overlay-dark) 0%,
     var(--terminal-green-01) 50%,
-    rgba(0, 0, 0, 0.8) 100%
+    var(--overlay-dark) 100%
   );
   z-index: 1;
 }
@@ -70,7 +70,7 @@
    font-size: 24px;
    line-height: 1.2;
    letter-spacing: 1px;
-   background: rgba(0, 0, 0, 0.9);
+   background: var(--featured-title-bg);
    border: 1px solid var(--terminal-green);
    padding: 15px 20px;
    text-shadow: 0 0 2px var(--terminal-shadow);

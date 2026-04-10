@@ -47,6 +47,10 @@ $rss-color: #ff6600;
   // Code block background
   --code-bg: #1a1a2e;
 
+  // Overlay / featured backgrounds
+  --overlay-dark: rgba(0, 0, 0, 0.8);
+  --featured-title-bg: rgba(0, 0, 0, 0.9);
+
   // Post date color
   --post-date-color: #9a9a9a;
 }
@@ -56,8 +60,8 @@ $rss-color: #ff6600;
   --terminal-green: #006622;
   --terminal-green-bright: #005522;
   --terminal-green-dim: #337744;
-  --terminal-green-glow: rgba(0, 102, 34, 0.15);
-  --terminal-shadow: rgba(0, 102, 34, 0.1);
+  --terminal-green-glow: rgba(0, 160, 50, 0.08);
+  --terminal-shadow: rgba(0, 160, 50, 0.06);
 
   --terminal-bg-95: rgba(245, 245, 240, 0.98);
   --terminal-green-01: rgba(0, 102, 34, 0.08);
@@ -70,6 +74,10 @@ $rss-color: #ff6600;
   --terminal-green-03: rgba(0, 102, 34, 0.2);
 
   --code-bg: #f0f0e8;
+
+  // Overlay / featured backgrounds (flipped for light)
+  --overlay-dark: rgba(245, 245, 240, 0.7);
+  --featured-title-bg: rgba(245, 245, 240, 0.92);
 
   --post-date-color: #666666;
 }
