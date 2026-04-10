@@ -38,13 +38,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 .contact-item {
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: rgba(0, 255, 65, 0.05);
-  border: 1px solid rgba(0, 255, 65, 0.2);
+  background: var(--terminal-green-005);
+  border: 1px solid var(--terminal-green-02);
   border-radius: 5px;
 }
 
 .contact-item h3 {
-  color: #00ff41;
+  color: var(--terminal-green);
   margin-bottom: 1rem;
 }
 
@@ -58,12 +58,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 }
 
 .contact-item a {
-  color: #00ff41;
+  color: var(--terminal-green);
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .contact-item a:hover {
-  text-shadow: 0 0 5px #00ff41;
+  text-shadow: 0 0 5px var(--terminal-green-glow);
 }
 </style>
