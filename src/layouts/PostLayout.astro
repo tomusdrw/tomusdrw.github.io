@@ -29,7 +29,7 @@ function formatDate(date: Date): string {
 const allPosts = await getCollection('blog');
 const tags = frontmatter.tags || [];
 const relatedPosts = allPosts
-  .filter(p => p.slug !== slug && p.data.tags?.some((t: string) => tags.includes(t)))
+  .filter(p => p.id !== slug && p.data.tags?.some((t: string) => tags.includes(t)))
   .slice(0, 2);
 ---
 
@@ -61,7 +61,7 @@ const relatedPosts = allPosts
           {relatedPosts.map(post => (
             <li>
               <h3>
-                <a href={`/${post.slug}`}>
+                <a href={`/${post.id}`}>
                   <div class="related-thumbnail">
                     {post.data.image && (
                       <img src={`/assets/img/${post.data.image}`} alt={post.data.title} />

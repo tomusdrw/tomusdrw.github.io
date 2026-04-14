@@ -9,7 +9,7 @@ const allPosts = (await getCollection('blog'))
 <BaseLayout title="Blog" layoutClass="home">
   {allPosts.map(post => (
     <article>
-      <a href={`/${post.slug}`}>
+      <a href={`/${post.id}`}>
         <div
           class="featured-posts"
           style={post.data.image ? `background-image:url(/assets/img/${post.data.image})` : undefined}
