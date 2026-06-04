@@ -11,6 +11,6 @@
     "astro": "^6.4.4",
     "@astrojs/rss": "^4.0.0",
     "@astrojs/sitemap": "^3.7.3",
-    "sass": "^1.89.0"
+    "sass": "^1.100.0"
   }
 }
