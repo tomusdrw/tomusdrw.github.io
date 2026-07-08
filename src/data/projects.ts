@@ -56,6 +56,14 @@ export const projects = [
     category: 'Visualizations & Tools',
     items: [
       {
+        name: 'relativity-simulations',
+        url: 'https://tomusdrw.github.io/relativity-simulations',
+        repo: 'https://github.com/tomusdrw/relativity-simulations',
+        description: 'Interactive WebGL visualization of special relativity demonstrating the twin paradox. Features four relativistic clocks, light-signal propagation, and click-to-place interaction with configurable speed and distance.',
+        created: '2026-07',
+        updated: '2026-07',
+      },
+      {
         name: 'trumpet',
         url: 'https://tomusdrw.github.io/trumpet',
         repo: 'https://github.com/tomusdrw/trumpet',
@@ -102,6 +110,35 @@ export const projects = [
         description: 'Polish AAC (Augmentative and Alternative Communication) core words app. A curated list of 500 key words for building alternative communication systems, ranked by communicative priority.',
         created: '2026-03',
         updated: '2026-03',
+      },
+    ],
+  },
+  {
+    category: 'Libraries & Automation',
+    items: [
+      {
+        name: 'fjall-js',
+        url: 'https://github.com/tomusdrw/fjall-js',
+        repo: 'https://github.com/tomusdrw/fjall-js',
+        description: 'TypeScript/Node.js bindings for the fjall LSM-tree storage engine. Ships pre-built native binaries for macOS and Linux, with safe cross-thread sharing via Node worker_threads.',
+        created: '2026-06',
+        updated: '2026-06',
+      },
+      {
+        name: 'telemach-bot',
+        url: 'https://github.com/tomusdrw/telemach-bot',
+        repo: 'https://github.com/tomusdrw/telemach-bot',
+        description: 'Personal Telegram bot that forwards messages, attachments, and transcribed voice notes to email. LLM-generated subject lines via OpenRouter, delivery via Resend. Multi-user with admin approval.',
+        created: '2026-05',
+        updated: '2026-06',
+      },
+      {
+        name: 'github-notifications',
+        url: 'https://github.com/tomusdrw/github-notifications',
+        repo: 'https://github.com/tomusdrw/github-notifications',
+        description: 'Polls GitHub notifications, hydrates content, and appends to a local JSONL feed file. A capture-only pipeline designed for LLM-powered notification processing.',
+        created: '2026-06',
+        updated: '2026-07',
       },
     ],
   },

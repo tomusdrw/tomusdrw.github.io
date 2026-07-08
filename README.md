@@ -30,12 +30,21 @@ Personal website of Tomek Drwięga, built with [Astro](https://astro.build/) and
 
 | Project | Description |
 |---------|-------------|
+| [relativity-simulations](https://tomusdrw.github.io/relativity-simulations) ([repo](https://github.com/tomusdrw/relativity-simulations)) | Interactive WebGL special relativity simulator with twin paradox and light-signal propagation |
 | [trumpet](https://tomusdrw.github.io/trumpet) ([repo](https://github.com/tomusdrw/trumpet)) | Browser-based trumpet tuner with real-time pitch detection and fingering chart |
 | [blacksoft.graph.vis](https://tomusdrw.github.io/blacksoft.graph.vis) ([repo](https://github.com/tomusdrw/blacksoft.graph.vis)) | Animated visualisation of graph algorithms using arbor.js |
 | [kdtree](https://tomusdrw.github.io/kdtree) ([repo](https://github.com/tomusdrw/kdtree)) | JavaScript k-d tree implementation with interactive demos |
 | [rust-type-visualiser](https://tomusdrw.github.io/rust-type-visualiser) ([repo](https://github.com/tomusdrw/rust-type-visualiser)) | Visualise deeply nested Rust generic types from compiler errors |
 | [rust-assert-diff](https://tomusdrw.github.io/rust-assert-diff) ([repo](https://github.com/tomusdrw/rust-assert-diff)) | Highlighted diff viewer for Rust test assertion failures |
 | [corewords](https://fluffyassist.github.io/corewords) ([repo](https://github.com/FluffyAssist/corewords)) | Polish AAC core words app — 500 key words for alternative communication |
+
+### Libraries & Automation
+
+| Project | Description |
+|---------|-------------|
+| [fjall-js](https://github.com/tomusdrw/fjall-js) | TypeScript/Node.js bindings for the fjall LSM-tree storage engine with pre-built native binaries |
+| [telemach-bot](https://github.com/tomusdrw/telemach-bot) | Telegram bot forwarding messages and transcribed voice notes to email with LLM-generated subjects |
+| [github-notifications](https://github.com/tomusdrw/github-notifications) | GitHub notification poller that hydrates content into a JSONL feed for LLM pipelines |
 
 ## Blog Posts
 
