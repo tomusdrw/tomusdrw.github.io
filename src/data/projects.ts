@@ -117,6 +117,14 @@ export const projects = [
     category: 'Libraries & Automation',
     items: [
       {
+        name: 'nori',
+        url: 'https://github.com/tomusdrw/nori',
+        repo: 'https://github.com/tomusdrw/nori',
+        description: 'Self-hosted deployment control panel for Docker services on GHCR.',
+        created: '2026-07',
+        updated: '2026-07',
+      },
+      {
         name: 'fjall-js',
         url: 'https://github.com/tomusdrw/fjall-js',
         repo: 'https://github.com/tomusdrw/fjall-js',
