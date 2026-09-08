@@ -42,6 +42,7 @@ Personal website of Tomek Drwięga, built with [Astro](https://astro.build/) and
 
 | Project | Description |
 |---------|-------------|
+| [nori](https://github.com/tomusdrw/nori) | Self-hosted deployment control panel for Docker services on GHCR |
 | [fjall-js](https://github.com/tomusdrw/fjall-js) | TypeScript/Node.js bindings for the fjall LSM-tree storage engine with pre-built native binaries |
 | [telemach-bot](https://github.com/tomusdrw/telemach-bot) | Telegram bot forwarding messages and transcribed voice notes to email with LLM-generated subjects |
 | [github-notifications](https://github.com/tomusdrw/github-notifications) | GitHub notification poller that hydrates content into a JSONL feed for LLM pipelines |
